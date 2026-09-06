@@ -91,6 +91,7 @@ public class Const {
                 try {
                     NB_JOUEURS = Integer.parseInt(nbJoueursProp.trim());
                 } catch (NumberFormatException e) {
+                    System.err.println("NB_JOUEURS invalide dans " + Univers.config + " : '" + nbJoueursProp + "'");
                 }
             }
 
@@ -99,6 +100,7 @@ public class Const {
                 try {
                     SYSTEMES_REGIONAUX_PAR_PAQUET = Integer.parseInt(sysRegProp.trim());
                 } catch (NumberFormatException e) {
+                    System.err.println("SYSTEMES_REGIONAUX_PAR_PAQUET invalide dans " + Univers.config + " : '" + sysRegProp + "'");
                 }
             }
 

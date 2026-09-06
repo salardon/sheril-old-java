@@ -641,16 +641,14 @@ public class Univers {
 		return PAQUETS_DEPART == null ? 0 : PAQUETS_DEPART.size();
 	}
 
-	// Sélectionne et attribue le premier paquet de départ disponible pour un nouveau joueur.
+	// Sélectionne le premier paquet de départ disponible pour un nouveau joueur.
 	public static PaquetDepart choisirPaquetDepart() {
 		if (PAQUETS_DEPART == null)
 			return null;
 		for (int i = 0; i < PAQUETS_DEPART.size(); i++) {
 			PaquetDepart paquet = (PaquetDepart) PAQUETS_DEPART.get(i);
-			if (!paquet.estAttribue()) {
-				paquet.attribuer();
+			if (!paquet.estAttribue())
 				return paquet;
-			}
 		}
 		return null;
 	}

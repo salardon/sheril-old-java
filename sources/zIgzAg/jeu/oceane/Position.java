@@ -129,27 +129,28 @@ public class Position implements Serializable, Comparable, Cloneable {
 		retour.setPos(Univers.getTabInt(Const.BORNE_MAX, 1, 2));
 		return retour;
 	}
-		public static Position auHasardInSector(int galaxie, int sector) {
-		    int sectorSize = 10;
-		    int ratio = Const.BORNE_MAX / sectorSize;
+
+	public static Position auHasardInSector(int galaxie, int sector) {
+		int sectorSize = Const.BORNE_SECTEUR_X;
+		int ratio = Const.BORNE_MAX / sectorSize;
 		
-		    // Calcul des offsets
-		    int column = (sector - 1) % ratio;
-		    int row = (sector - 1) / ratio;
+		// Calcul des offsets
+		int column = (sector - 1) % ratio;
+		int row = (sector - 1) / ratio;
 		
-		    int minX = (column * sectorSize) + 1;
-		    int minY = (row * sectorSize) + 1;
+		int minX = (column * sectorSize) + 1;
+		int minY = (row * sectorSize) + 1;
 		
-		    Position retour = new Position();
-		    retour.setNumeroGalaxie(galaxie);
+		Position retour = new Position();
+		retour.setNumeroGalaxie(galaxie);
 		    
-		    // Génère X et Y spécifiquement dans les bornes du secteur
-		    int y = Univers.getInt(sectorSize) + minY;
-		    int x = Univers.getInt(sectorSize) + minX;
+		// Génère X et Y spécifiquement dans les bornes du secteur
+		int y = Univers.getInt(sectorSize) + minY;
+		int x = Univers.getInt(sectorSize) + minX;
 		    
-		    retour.setPos(new int[]{y, x});
-		    return retour;
-		}
+		retour.setPos(new int[]{y, x});
+		return retour;
+	}
 
 	// methode pour vÃ©rifier si une position est dans les bornes prÃ©vues.
 
