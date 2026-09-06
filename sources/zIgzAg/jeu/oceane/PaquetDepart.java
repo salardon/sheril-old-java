@@ -16,21 +16,34 @@ public class PaquetDepart implements Serializable {
 
 	public PaquetDepart(Position capitale, Position secondSysteme,
 			Position[] systemesNeutres) {
-		this.capitale = capitale;
-		this.secondSysteme = secondSysteme;
-		this.systemesNeutres = systemesNeutres;
+		this.capitale = copier(capitale);
+		this.secondSysteme = copier(secondSysteme);
+		this.systemesNeutres = copier(systemesNeutres);
 	}
 
 	public Position getCapitale() {
-		return capitale;
+		return copier(capitale);
 	}
 
 	public Position getSecondSysteme() {
-		return secondSysteme;
+		return copier(secondSysteme);
 	}
 
 	public Position[] getSystemesNeutres() {
-		return systemesNeutres == null ? new Position[0] : systemesNeutres.clone();
+		return copier(systemesNeutres);
+	}
+
+	private static Position copier(Position position) {
+		return position == null ? null : (Position) position.clone();
+	}
+
+	private static Position[] copier(Position[] positions) {
+		if (positions == null)
+			return new Position[0];
+		Position[] copie = new Position[positions.length];
+		for (int i = 0; i < positions.length; i++)
+			copie[i] = copier(positions[i]);
+		return copie;
 	}
 
 	public boolean estAttribue() {

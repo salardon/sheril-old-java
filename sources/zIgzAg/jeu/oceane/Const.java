@@ -42,8 +42,8 @@ public class Const {
 
     static {
         Properties properties = new Properties();
-        try {
-            properties.load(new FileInputStream(Univers.config));
+        try (FileInputStream configInput = new FileInputStream(Univers.config)) {
+            properties.load(configInput);
             String gameNameProp = properties.getProperty("GAME_NAME");
             if (gameNameProp != null && !gameNameProp.isEmpty()) {
                 GAME_NAME = gameNameProp;
