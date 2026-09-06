@@ -596,8 +596,16 @@ public class Univers {
 	}
 
 	public static void actualiserConstantesDepuisEtat() {
-		if (PAQUETS_DEPART != null && !PAQUETS_DEPART.isEmpty())
+		if (PAQUETS_DEPART != null && !PAQUETS_DEPART.isEmpty()) {
 			Const.BORNE_MAX = PAQUETS_DEPART.size() <= 35 ? 50 : 60;
+		} else if (SYSTEMES != null && !SYSTEMES.isEmpty()) {
+			int max = 0;
+			for (Object o : SYSTEMES.keySet()) {
+				Position p = (Position) o;
+				max = Math.max(max, Math.max(p.getX(), p.getY()));
+			}
+			Const.BORNE_MAX = max <= 50 ? 50 : 60;
+		}
 		Const.recalculerBornes();
 		actualiserNombreSystemes();
 	}

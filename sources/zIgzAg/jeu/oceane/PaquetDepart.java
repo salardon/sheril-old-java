@@ -30,7 +30,7 @@ public class PaquetDepart implements Serializable {
 	}
 
 	public Position[] getSystemesNeutres() {
-		return systemesNeutres == null ? null : systemesNeutres.clone();
+		return systemesNeutres == null ? new Position[0] : systemesNeutres.clone();
 	}
 
 	public boolean estAttribue() {
