@@ -589,10 +589,10 @@ public class Univers {
 	}
 
 	private static void actualiserNombreSystemes() {
-		if (SYSTEMES != null && !SYSTEMES.isEmpty()) {
-			Const.NB_SYSTEME = SYSTEMES.size();
-			Const.NB_FLOTTE_NEUTRE = Const.NB_SYSTEME;
-		}
+		if (SYSTEMES == null)
+			return;
+		Const.NB_SYSTEME = SYSTEMES.size();
+		Const.NB_FLOTTE_NEUTRE = Const.NB_SYSTEME;
 	}
 
 	public static void actualiserConstantesDepuisEtat() {
