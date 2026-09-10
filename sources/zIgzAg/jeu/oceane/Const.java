@@ -126,7 +126,7 @@ public class Const {
     public static int BORNE_MAX = NB_SECTEURS_X * BORNE_SECTEUR_X;     // Les bornes pour chaque galaxie. Les coordonnées vont de 1 à BORNE_MAX.
     // NB_SECTEURS dépend de BORNE_MAX (mutable pour les galaxies 50x50/60x60) et doit être
     // recalculé via recalculerBornes() après toute modification de BORNE_MAX.
-    // NB_SYSTEME peut ensuite être synchronisé sur l'état réel de l'univers (ex: Univers.actualiserNombreSystemes()).
+    // NB_SYSTEME peut ensuite être synchronisé sur l'état réel de   l'univers (ex: Univers.actualiserNombreSystemes()).
     public static int NB_SYSTEME = NB_SECTEURS * NB_SYSTEMES_PAR_SECTEUR;     // le nombre de systéme par galaxie
 
     public static int NB_FLOTTE_NEUTRE = NB_SYSTEME;     // le nombre de flotte neutre par galaxie
