@@ -5,10 +5,10 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Générateur de galaxie équilibrée pour 30 à 42 joueurs.
+ * Générateur de galaxie équilibrée pour 30 à 49 joueurs.
  * 
  * Principes de l'algorithme :
- * 1. Détermination de la taille de grille : 50x50 pour 30-35 joueurs, 60x60 pour 36-42 joueurs.
+ * 1. Détermination de la taille de grille : 50x50 pour 30-35 joueurs, 60x60 pour 36-49 joueurs.
  * 2. Étalement des capitales par grille toroïdale aléatoire avec distance minimale garantie (7-8 cases).
  * 3. Territoires de Voronoï toroïdaux : chaque capitale possède son secteur exclusif sur le tore.
  * 4. Paquets de départ (capitale + 2nd système réservé + 8 neutres) :
@@ -44,10 +44,10 @@ public class AjoutDeGalaxie {
         SYSTEMES_REGIONAUX_PAR_PAQUET = Const.SYSTEMES_REGIONAUX_PAR_PAQUET;
         // Chargement du nombre de joueurs (depuis l'argument ou config.properties par défaut)
         int nombreJoueurs = (args.length >= 2) ? Integer.parseInt(args[1]) : Const.NB_JOUEURS;
-        if (nombreJoueurs < 30 || nombreJoueurs > 42)
-            throw new IllegalArgumentException("Le nombre de joueurs doit être compris entre 30 et 42.");
+        if (nombreJoueurs < 30 || nombreJoueurs > 49)
+            throw new IllegalArgumentException("Le nombre de joueurs doit être compris entre 30 et 49.");
 
-        // Adaptation dynamique de la taille de galaxie (50x50 pour 30-35 joueurs, 60x60 pour 36-42)
+        // Adaptation dynamique de la taille de galaxie (50x50 pour 30-35 joueurs, 60x60 pour 36-49)
         if (nombreJoueurs <= 35) {
             Const.BORNE_MAX = 50;
         } else {
@@ -247,7 +247,7 @@ public class AjoutDeGalaxie {
     }
 
     /**
-     * Calcule la grille de capitales toroïdale (6x6 pour 30-35 joueurs, 7x7 pour 36-42 joueurs)
+     * Calcule la grille de capitales toroïdale (6x6 pour 30-35 joueurs, 7x7 pour 36-49 joueurs)
      * et retire les emplacements excédentaires de façon homogène.
      */
     private static List positionsCapitales(int galaxie, int nombreJoueurs) {
